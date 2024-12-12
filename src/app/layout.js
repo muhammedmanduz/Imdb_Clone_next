@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Providers from "./Providers";
 import { ThemeProvider } from "next-themes";
 import Navbar from "./components/Navbar";
+import Searchbox from "./components/Searchbox";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,11 +27,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider defaultTheme="system" attribute="class">
+        <Providers defaultTheme="system" attribute="class">
           <Header />
-          <Navbar/>
+          <Navbar />
+          <Searchbox />
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
